@@ -15,6 +15,9 @@ maintainers = [
 dependencies = [
 ]
 
+[project.optional-dependencies]
+dev = ["ruff==0.17.0"]
+
 [project.entry-points."pretix.plugin"]
 flowspace = "flowspace:PretixPluginMeta"
 
@@ -40,3 +43,23 @@ version = {attr = "flowspace.__version__"}
 [tool.setuptools.packages.find]
 include = ["flowspace*"]
 namespaces = false
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = ["migrations", ".ropeproject", "static", "_static", "build", ".cache"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E402"]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 160
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = ["flowspace"]
+known-third-party = ["pretix"]
+
+[tool.ruff.lint.per-file-ignores]
+"setup.py" = ["I"]

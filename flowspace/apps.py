@@ -16,7 +16,9 @@ class FlowspaceApp(PluginConfig):
     class EventyayPluginMeta:
         name = _("Flowspace")
         author = "FOSSASIA"
-        description = _("This plugin allows you to integrate Flowspace with your events")
+        description = _(
+            "This plugin allows you to integrate Flowspace with your events"
+        )
         visible = True
         version = __version__
         category = "FEATURE"
